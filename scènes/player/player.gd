@@ -35,15 +35,15 @@ func _physics_process(delta):
 		velocity.y = jump_force
 		if input.x and input.y:
 			movement_dir += Vector3(movement_dir.x + jump_boost, 0, movement_dir.z + jump_boost)
-			#overspeed = velocity.length()
+			overspeed = velocity.length()
 			$HUD/debug/VBoxContainer/MarginContainer/Label.text = str(overspeed)
 
 	# inertia and in air restricted move
 	if is_on_floor():
 		if movement_dir:
 			if velocity.length() > speed + 1:
-				velocity.x = movement_dir.x #* overspeed
-				velocity.z = movement_dir.z #* overspeed
+				velocity.x = movement_dir.x * overspeed
+				velocity.z = movement_dir.z * overspeed
 				overspeed -= 0.1
 				$HUD/debug/VBoxContainer/MarginContainer/Label.text = str(overspeed)
 			else:

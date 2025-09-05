@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="kacitron"
+config/name="Kacitron"
 run/main_scene="uid://bh57b4fxlsbbm"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://bjml2gvaq2q81"
+config/icon="uid://bjml2gvaq2q81"
 
 [input]
 

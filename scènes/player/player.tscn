@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3xn4qb5twa27"]
+[gd_scene load_steps=10 format=3 uid="uid://c3xn4qb5twa27"]
 
-[ext_resource type="Script" uid="uid://b6etp87dpt4ed" path="res://scènes/player/player.gd" id="1_jhjbg"]
+[ext_resource type="Script" uid="uid://cy75o7u02adak" path="res://scènes/player/player_new.gd" id="1_b6vsf"]
 [ext_resource type="Script" uid="uid://bgkdkw8sot1xq" path="res://scènes/player/speed_o_meter.gd" id="2_b6vsf"]
+[ext_resource type="Script" uid="uid://c0o4muntow8m3" path="res://scènes/player/crosshair.gd" id="3_cno5w"]
+[ext_resource type="Script" uid="uid://bo38roo3s65ns" path="res://scènes/player/headbob.gd" id="3_ev5vh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhjbg"]
 font_size = 24
@@ -26,7 +28,7 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jhjbg"]
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_jhjbg")
+script = ExtResource("1_b6vsf")
 
 [node name="HUD" type="Node" parent="."]
 
@@ -99,6 +101,18 @@ uppercase = true
 visible_characters = 2
 visible_ratio = 2.0
 
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_cno5w")
+dot_radius = 1.5
+dot_outline_radius = 3.5
+
 [node name="head" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -106,6 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="camera" type="Camera3D" parent="head"]
 unique_name_in_owner = true
 fov = 95.0
+script = ExtResource("3_ev5vh")
 
 [node name="camination" type="AnimationPlayer" parent="head"]
 unique_name_in_owner = true
